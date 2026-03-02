@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeti Ata | Тарих & Генетика & Ру</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B4513;
+            --secondary: #CD853F;
+            --accent: #DEB887;
+            --bg-light: #FFF5E6;
+            --bg-dark: #2C1810;
+            --text: #4A3729;
+            --gold: #D4AF37;
+            --gradient-1: linear-gradient(135deg, #8B4513, #CD853F);
+            --gradient-2: linear-gradient(135deg, #2C1810, #8B4513);
+            --shadow: 0 10px 30px rgba(139, 69, 19, 0.15);
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(255, 245, 230, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+            background: rgba(212,175,55,0.1);
+        }
+
+        .lang-switch {
+            background: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            border: 2px solid var(--gold);
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch:hover {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        [data-lang="kk"] .lang-en {
+            display: none;
+        }
+
+        [data-lang="en"] .lang-kk {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: radial-gradient(circle at 30% 50%, rgba(205,133,63,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(139,69,19,0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 4rem;
+            background: rgba(255,255,255,0.9);
+            border-radius: 60px;
+            border: 2px solid var(--gold);
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .history-part {
+            color: var(--primary);
+            display: block;
+        }
+
+        .bio-part {
+            color: var(--secondary);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50px;
+            border: 1px solid var(--gold);
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            border: 2px solid var(--gold);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .section-title i {
+            color: var(--gold);
+            margin: 0 0.5rem;
+        }
+
+        /* Color Lab */
+        .color-lab {
+            background: white;
+        }
+
+        .beakers-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+            padding: 3rem;
+            background: linear-gradient(145deg, #fff, var(--bg-light));
+            border-radius: 60px;
+            border: 2px solid var(--gold);
+        }
+
+        .beaker-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 140px;
+            transition: all 0.5s ease;
+        }
+
+        .beaker-item:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .beaker-label {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-align: center;
+            height: 60px;
+        }
+
+        .beaker-glass {
+            width: 120px;
+            height: 250px;
+            border: 3px solid var(--gold);
+            border-top: none;
+            border-radius: 0 0 40px 40px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255,255,255,0.9);
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1), 0 10px 20px rgba(139,69,19,0.1);
+        }
+
+        .liquid-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            transition: all 0.8s ease;
+        }
+
+        .layer-red { background: #8B4513; }
+        .layer-brown { background: #5D3A1A; }
+        .layer-lightbrown { background: #8B5A2B; }
+        .layer-tan { background: #BC8F4F; }
+        .layer-beige { background: #D2B48C; }
+        .layer-cream { background: #F5DEB3; }
+        .layer-offwhite { background: #FFF0DB; }
+        .layer-white { background: #FFFFFF; }
+
+        .beaker-percent {
+            margin-top: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .mix-controls {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .mix-btn {
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mix-btn.mix {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .mix-btn.reset {
+            background: white;
+            color: var(--primary);
+        }
+
+        .mix-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .result-container {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .result-color {
+            width: 250px;
+            height: 150px;
+            margin: 2rem auto;
+            border-radius: 100px;
+            border: 4px solid var(--gold);
+            transition: all 0.5s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .result-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* DNA Section */
+        .dna-section {
+            background: var(--gradient-2);
+            color: white;
+        }
+
+        .dna-spiral {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            height: 300px;
+            align-items: center;
+            margin: 4rem 0;
+        }
+
+        .dna-segment {
+            width: 40px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold), var(--secondary));
+            border-radius: 20px;
+            transition: all 0.5s ease;
+        }
+
+        /* Tree Section */
+        .tree-section {
+            background: linear-gradient(135deg, #2C5F2D, #1E4B1E);
+            color: white;
+        }
+
+        .tree-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            padding: 3rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 60px;
+            border: 2px solid var(--gold);
+        }
+
+        .root-person {
+            background: var(--gradient-1);
+            padding: 2rem 4rem;
+            border-radius: 60px;
+            font-size: 2rem;
+            font-weight: 700;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px rgba(212,175,55,0.3);
+        }
+
+        .branches {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .branch-line {
+            width: 3px;
+            height: 70px;
+            background: linear-gradient(180deg, var(--gold), var(--secondary));
+        }
+
+        .branch-node {
+            background: rgba(255,255,255,0.15);
+            border: 2px solid var(--gold);
+            border-radius: 40px;
+            padding: 1.5rem 2.5rem;
+            text-align: center;
+            min-width: 180px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .branch-node:hover {
+            transform: scale(1.05);
+            background: rgba(139,69,19,0.3);
+        }
+
+        /* Slider Section */
+        .slider-section {
+            background: white;
+        }
+
+        .slider-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: linear-gradient(145deg, #fff, var(--bg-light));
+            border-radius: 60px;
+            border: 2px solid var(--gold);
+        }
+
+        .slider {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: var(--gradient-1);
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .slider-info {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .human-silhouette {
+            width: 150px;
+            height: 250px;
+            margin: 2rem auto;
+            border-radius: 50px 50px 20px 20px;
+            transition: all 0.5s ease;
+            border: 3px solid var(--gold);
+            background: var(--primary);
+        }
+
+        .slider-percent {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Genealogy Lab */
+        .genealogy-section {
+            background: var(--bg-light);
+        }
+
+        .genealogy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .initial-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            border: 2px solid var(--gold);
+        }
+
+        .form-group {
+            margin: 1.5rem 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--accent);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212,175,55,0.2);
+        }
+
+        .form-group select {
+            height: 150px;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .tree-container {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(145deg, #2C5F2D, #1E4B1E);
+            border-radius: 60px;
+            border: 3px solid var(--gold);
+            color: white;
+            overflow-x: auto;
+        }
+
+        .tree-title {
+            text-align: center;
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .generation-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .person-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--gold);
+            border-radius: 30px;
+            padding: 1.5rem;
+            min-width: 250px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .person-card:hover {
+            transform: translateY(-5px);
+            background: rgba(139,69,19,0.3);
+        }
+
+        .person-card.root {
+            background: var(--gradient-1);
+        }
+
+        .person-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .person-ru {
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            padding: 0.3rem 1rem;
+            background: rgba(212,175,55,0.2);
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .person-percent {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .generation-label {
+            background: var(--gold);
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .add-child-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 50px;
+            margin: 2rem 0;
+            border: 2px solid var(--gold);
+        }
+
+        .add-child-form h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--gold);
+        }
+
+        /* Timeline */
+        .timeline-section {
+            background: white;
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 50px;
+            border: 2px solid var(--gold);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .gen-badge {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            border: 3px solid var(--gold);
+        }
+
+        /* Ru Hierarchy */
+        .ru-hierarchy {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 50px;
+            border: 2px solid var(--gold);
+        }
+
+        .ru-hierarchy h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hierarchy-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hierarchy-item {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 30px;
+            border-left: 5px solid var(--gold);
+        }
+
+        .main-ru {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .sub-ru {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .sub-ru span {
+            background: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid var(--gold);
+        }
+
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            border-top: 4px solid var(--gold);
+        }
+
+        .footer-text {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 1000px) {
+            .hero-title { font-size: 3.5rem; }
+            nav { gap: 1rem; }
+            .beaker-item { width: 100px; }
+            .beaker-glass { width: 90px; height: 200px; }
+        }
+
+        @media (max-width: 700px) {
+            section { padding: 4rem 1rem; }
+            .hero-title { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body data-lang="kk">
+    <header>
+        <div class="logo">JETI ATA</div>
+        <nav>
+            <a href="#color-lab" class="nav-link lang-kk"><i class="fas fa-flask"></i> Түстер</a>
+            <a href="#color-lab" class="nav-link lang-en"><i class="fas fa-flask"></i> Colors</a>
+            <a href="#dna" class="nav-link lang-kk"><i class="fas fa-dna"></i> ДНҚ</a>
+            <a href="#dna" class="nav-link lang-en"><i class="fas fa-dna"></i> DNA</a>
+            <a href="#tree" class="nav-link lang-kk"><i class="fas fa-tree"></i> Ағаш</a>
+            <a href="#tree" class="nav-link lang-en"><i class="fas fa-tree"></i> Tree</a>
+            <a href="#genealogy" class="nav-link lang-kk"><i class="fas fa-users"></i> Шежіре</a>
+            <a href="#genealogy" class="nav-link lang-en"><i class="fas fa-users"></i> Genealogy</a>
+            <div class="lang-switch" id="langSwitch">EN</div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="history-part lang-kk">ЖЕТІ АТА</span>
+                    <span class="history-part lang-en">JETI ATA</span>
+                    <span class="bio-part lang-kk">ГЕНЕТИКАЛЫҚ КОД</span>
+                    <span class="bio-part lang-en">GENETIC CODE</span>
+                </h1>
+                <p class="hero-subtitle lang-kk">
+                    <i class="fas fa-history"></i> 7 ата дәстүрі мен генетика ғылымы
+                </p>
+                <p class="hero-subtitle lang-en">
+                    <i class="fas fa-history"></i> 7 generations tradition & genetics
+                </p>
+                <button class="btn-primary" id="heroBtn">
+                    <span class="lang-kk"><i class="fas fa-play"></i> Бастау</span>
+                    <span class="lang-en"><i class="fas fa-play"></i> Start</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Color Lab -->
+        <section class="color-lab" id="color-lab">
+            <h2 class="section-title">
+                <i class="fas fa-palette"></i>
+                <span class="lang-kk">ТҮСТЕРДІҢ АРАЛАСУЫ</span>
+                <span class="lang-en">COLOR MIXING</span>
+            </h2>
+            
+            <div class="beakers-container" id="beakersContainer"></div>
+            
+            <div class="mix-controls">
+                <button class="mix-btn mix" id="startMixBtn">
+                    <i class="fas fa-flask"></i>
+                    <span class="lang-kk">Араластыру</span>
+                    <span class="lang-en">Mix</span>
+                </button>
+                <button class="mix-btn reset" id="resetMixBtn">
+                    <i class="fas fa-redo-alt"></i>
+                    <span class="lang-kk">Қайта бастау</span>
+                    <span class="lang-en">Reset</span>
+                </button>
+            </div>
+
+            <div class="result-container">
+                <div class="result-color" id="resultColor"></div>
+                <div class="result-text" id="colorName">Қоңыр</div>
+            </div>
+        </section>
+
+        <!-- DNA Section -->
+        <section class="dna-section" id="dna">
+            <h2 class="section-title" style="color: var(--gold);">
+                <i class="fas fa-dna"></i>
+                <span class="lang-kk">ДНҚ СПИРАЛЫ</span>
+                <span class="lang-en">DNA SPIRAL</span>
+            </h2>
+            <div class="dna-spiral" id="dnaSpiral"></div>
+        </section>
+
+        <!-- Tree Section -->
+        <section class="tree-section" id="tree">
+            <h2 class="section-title" style="color: var(--gold);">
+                <i class="fas fa-tree"></i>
+                <span class="lang-kk">ШЕЖІРЕ АҒАШЫ</span>
+                <span class="lang-en">GENEALOGY TREE</span>
+            </h2>
+            <div class="tree-visual" id="treeVisual"></div>
+        </section>
+
+        <!-- Slider Section -->
+        <section class="slider-section">
+            <h2 class="section-title">
+                <i class="fas fa-sliders-h"></i>
+                <span class="lang-kk">ВИРТУАЛДЫ ЭКСПЕРИМЕНТ</span>
+                <span class="lang-en">VIRTUAL EXPERIMENT</span>
+            </h2>
+            <div class="slider-container">
+                <input type="range" min="1" max="8" value="1" class="slider" id="genSlider">
+                <div class="slider-info">
+                    <div class="human-silhouette" id="humanSilhouette"></div>
+                    <div class="slider-percent" id="sliderPercent">50%</div>
+                    <p style="font-size: 1.5rem; color: var(--primary);" id="sliderDesc">1-буын: Бала</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Genealogy Lab -->
+        <section class="genealogy-section" id="genealogy">
+            <div class="genealogy-container">
+                <h2 class="section-title">
+                    <i class="fas fa-users"></i>
+                    <span class="lang-kk">ӨЗ ШЕЖІРЕҢДІ ҚҰР</span>
+                    <span class="lang-en">BUILD YOUR GENEALOGY</span>
+                </h2>
+                
+                <div class="initial-info">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Өз атыңыз:</label>
+                        <input type="text" id="userName" placeholder="Атыңызды жазыңыз" value="Арман">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-tree"></i> Өз руыңыз:</label>
+                        <select id="userRu" size="5">
+                            <optgroup label="Ұлы жүз">
+                                <option value="Ұлы жүз > Дулат">Дулат</option>
+                                <option value="Ұлы жүз > Албан">Албан</option>
+                                <option value="Ұлы жүз > Суан">Суан</option>
+                                <option value="Ұлы жүз > Сарыүйсін">Сарыүйсін</option>
+                                <option value="Ұлы жүз > Шапырашты">Шапырашты</option>
+                                <option value="Ұлы жүз > Ошақты">Ошақты</option>
+                                <option value="Ұлы жүз > Ысты">Ысты</option>
+                            </optgroup>
+                            <optgroup label="Орта жүз">
+                                <option value="Орта жүз > Арғын">Арғын</option>
+                                <option value="Орта жүз > Найман">Найман</option>
+                                <option value="Орта жүз > Қыпшақ">Қыпшақ</option>
+                                <option value="Орта жүз > Қоңырат">Қоңырат</option>
+                                <option value="Орта жүз > Керей">Керей</option>
+                                <option value="Орта жүз > Уақ">Уақ</option>
+                            </optgroup>
+                            <optgroup label="Кіші жүз">
+                                <option value="Кіші жүз > Әлімұлы">Әлімұлы</option>
+                                <option value="Кіші жүз > Байұлы">Байұлы</option>
+                                <option value="Кіші жүз > Жетіру">Жетіру</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="startTreeBtn">
+                        <i class="fas fa-play"></i> Шежірені бастау
+                    </button>
+                </div>
+
+                <div class="tree-container">
+                    <h3 class="tree-title">🌳 СЕНІҢ ШЕЖІРЕҢ</h3>
+                    <div id="genealogyTree"></div>
+                </div>
+
+                <div class="add-child-form" id="addChildForm" style="display: none;">
+                    <h3><i class="fas fa-child"></i> Ұрпақ қосу</h3>
+                    
+                    <div class="form-group">
+                        <label>Ұрпақтың аты:</label>
+                        <input type="text" id="childName" placeholder="Атын жазыңыз">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Руы:</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="ruType" value="father" checked> Әкесінің руымен
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="ruType" value="mother"> Шешесінің руымен
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="btn btn-primary" id="addChildBtn">
+                            <i class="fas fa-plus"></i> Қосу
+                        </button>
+                        <button class="btn btn-secondary" id="cancelAddBtn">
+                            <i class="fas fa-times"></i> Болдырмау
+                        </button>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 2rem 0;">
+                    <button class="btn btn-primary" id="showAddFormBtn">
+                        <i class="fas fa-plus-circle"></i> Жаңа ұрпақ қосу
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="timeline-section">
+            <h2 class="section-title">
+                <i class="fas fa-clock"></i>
+                <span class="lang-kk">7 АТА ШЕЖІРЕСІ</span>
+                <span class="lang-en">7 GENERATIONS</span>
+            </h2>
+            <div class="timeline-container" id="timelineContainer"></div>
+        </section>
+
+        <!-- Ru Hierarchy -->
+        <div class="ru-hierarchy">
+            <h3><i class="fas fa-sitemap"></i> Қазақ рулары</h3>
+            <div class="hierarchy-tree">
+                <div class="hierarchy-item">
+                    <div class="main-ru">Ұлы жүз</div>
+                    <div class="sub-ru">
+                        <span>Дулат</span>
+                        <span>Албан</span>
+                        <span>Суан</span>
+                        <span>Сарыүйсін</span>
+                        <span>Шапырашты</span>
+                        <span>Ошақты</span>
+                        <span>Ысты</span>
+                    </div>
+                </div>
+                <div class="hierarchy-item">
+                    <div class="main-ru">Орта жүз</div>
+                    <div class="sub-ru">
+                        <span>Арғын</span>
+                        <span>Найман</span>
+                        <span>Қыпшақ</span>
+                        <span>Қоңырат</span>
+                        <span>Керей</span>
+                        <span>Уақ</span>
+                    </div>
+                </div>
+                <div class="hierarchy-item">
+                    <div class="main-ru">Кіші жүз</div>
+                    <div class="sub-ru">
+                        <span>Әлімұлы</span>
+                        <span>Байұлы</span>
+                        <span>Жетіру</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-text">
+                <i class="fas fa-star"></i>
+                <span class="lang-kk">ЖЕТІ АТА: ТАРИХ, ГЕНЕТИКА ЖӘНЕ РУ</span>
+                <span class="lang-en">JETI ATA: HISTORY, GENETICS AND CLAN</span>
+                <i class="fas fa-star"></i>
+            </div>
+            <p style="margin-top: 2rem; color: var(--gold);">© 2025</p>
+        </footer>
+    </main>
+
+    <script>
+        (function() {
+            // Language switch
+            const langSwitch = document.getElementById('langSwitch');
+            const body = document.body;
+            let currentLang = 'kk';
+            
+            function updateLanguage() {
+                body.setAttribute('data-lang', currentLang);
+                langSwitch.textContent = currentLang === 'kk' ? 'EN' : 'Қаз';
+                
+                // Update texts
+                updateColorName();
+            }
+            
+            langSwitch.addEventListener('click', () => {
+                currentLang = currentLang === 'kk' ? 'en' : 'kk';
+                updateLanguage();
+            });
+
+            // Color mixing data
+            const generations = [
+                { kk: 'Әке', en: 'Father', color1: '#8B4513', color2: '#2C1810', result: '#5D3A1A', name: { kk: 'Қоңыр', en: 'Brown' } },
+                { kk: 'Бала', en: 'Child', color1: '#5D3A1A', color2: '#CD853F', result: '#8B5A2B', name: { kk: 'Ақшыл қоңыр', en: 'Light Brown' } },
+                { kk: 'Немере', en: 'Grandchild', color1: '#8B5A2B', color2: '#DEB887', result: '#BC8F4F', name: { kk: 'Сары қоңыр', en: 'Tan' } },
+                { kk: 'Шөбере', en: 'Great-grand', color1: '#BC8F4F', color2: '#F4A460', result: '#D2B48C', name: { kk: 'Бежевый', en: 'Beige' } },
+                { kk: 'Шөпшек', en: '4th gen', color1: '#D2B48C', color2: '#FFE4C4', result: '#F5DEB3', name: { kk: 'Крем', en: 'Cream' } },
+                { kk: 'Немене', en: '5th gen', color1: '#F5DEB3', color2: '#FAF0E6', result: '#FFF0DB', name: { kk: 'Ақшыл', en: 'Off-white' } },
+                { kk: 'Туажат', en: '6th gen', color1: '#FFF0DB', color2: '#FFF9F0', result: '#FFFCF5', name: { kk: 'Өте ақшыл', en: 'Very light' } },
+                { kk: 'Жұрағат', en: '7th gen', color1: '#FFFCF5', color2: '#FFFFFF', result: '#FFFFFF', name: { kk: 'Ақ', en: 'White' } },
+                { kk: 'Жегжат', en: '8th gen', color1: '#FFFFFF', color2: '#F0F0F0', result: '#F8F8F8', name: { kk: 'Мөлдір', en: 'Clear' } }
+            ];
+
+            // Beakers
+            const beakersContainer = document.getElementById('beakersContainer');
+            const resultColor = document.getElementById('resultColor');
+            const colorName = document.getElementById('colorName');
+            let currentStep = 0;
+            let mixInterval;
+
+            function createBeakers() {
+                let html = '';
+                generations.forEach((gen, index) => {
+                    const percent = (100 / Math.pow(2, index)).toFixed(2) + '%';
+                    html += `
+                        <div class="beaker-item" id="beaker-${index}">
+                            <div class="beaker-label">
+                                <span class="lang-kk">${gen.kk}</span>
+                                <span class="lang-en">${gen.en}</span>
+                            </div>
+                            <div class="beaker-glass">
+                                <div class="liquid-layer" style="height: 50%; background: ${gen.color1};"></div>
+                                <div class="liquid-layer" style="height: 50%; bottom: 0; background: ${gen.color2};"></div>
+                            </div>
+                            <div class="beaker-percent">${percent}</div>
+                        </div>
+                    `;
+                });
+                beakersContainer.innerHTML = html;
+            }
+
+            function updateColorName() {
+                if (currentStep > 0) {
+                    colorName.textContent = currentLang === 'kk' ? 
+                        generations[currentStep-1].name.kk : 
+                        generations[currentStep-1].name.en;
+                }
+            }
+
+            function startMixing() {
+                if (mixInterval) clearInterval(mixInterval);
+                currentStep = 0;
+                
+                mixInterval = setInterval(() => {
+                    if (currentStep >= generations.length) {
+                        clearInterval(mixInterval);
+                        return;
+                    }
+                    
+                    const beaker = document.getElementById(`beaker-${currentStep}`);
+                    if (beaker) {
+                        const layers = beaker.querySelectorAll('.liquid-layer');
+                        layers[0].style.height = '100%';
+                        layers[0].style.background = generations[currentStep].result;
+                        layers[1].style.height = '0%';
+                    }
+                    
+                    resultColor.style.background = generations[currentStep].result;
+                    colorName.textContent = currentLang === 'kk' ? 
+                        generations[currentStep].name.kk : 
+                        generations[currentStep].name.en;
+                    
+                    currentStep++;
+                }, 1500);
+            }
+
+            function resetMixing() {
+                if (mixInterval) clearInterval(mixInterval);
+                currentStep = 0;
+                
+                for (let i = 0; i < generations.length; i++) {
+                    const beaker = document.getElementById(`beaker-${i}`);
+                    if (beaker) {
+                        const layers = beaker.querySelectorAll('.liquid-layer');
+                        layers[0].style.height = '50%';
+                        layers[0].style.background = generations[i].color1;
+                        layers[1].style.height = '50%';
+                        layers[1].style.background = generations[i].color2;
+                    }
+                }
+                
+                resultColor.style.background = generations[0].color1;
+                colorName.textContent = currentLang === 'kk' ? generations[0].name.kk : generations[0].name.en;
+            }
+
+            // DNA Spiral
+            const dnaSpiral = document.getElementById('dnaSpiral');
+            function updateDNA(genIndex) {
+                let html = '';
+                const segments = 12;
+                for (let i = 0; i < segments; i++) {
+                    const opacity = Math.max(0.2, 1 - (genIndex / 12));
+                    html += `<div class="dna-segment" style="opacity: ${opacity};"></div>`;
+                }
+                dnaSpiral.innerHTML = html;
+            }
+
+            // Tree
+            const treeVisual = document.getElementById('treeVisual');
+            function updateTree(genIndex) {
+                let html = `
+                    <div class="root-person">
+                        <span class="lang-kk">Сен (100%)</span>
+                        <span class="lang-en">You (100%)</span>
+                    </div>
+                    <div class="branches">
+                `;
+                
+                for (let i = 1; i <= 8; i++) {
+                    const percent = (100 / Math.pow(2, i)).toFixed(2) + '%';
+                    const isHighlight = i === genIndex;
+                    html += `
+                        <div class="branch">
+                            <div class="branch-line"></div>
+                            <div class="branch-node" style="${isHighlight ? 'background: rgba(139,69,19,0.3); transform: scale(1.05);' : ''}">
+                                <div class="lang-kk">${generations[i].kk}</div>
+                                <div class="lang-en">${generations[i].en}</div>
+                                <div style="color: var(--gold);">${percent}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                html += '</div>';
+                treeVisual.innerHTML = html;
+            }
+
+            // Slider
+            const genSlider = document.getElementById('genSlider');
+            const sliderPercent = document.getElementById('sliderPercent');
+            const sliderDesc = document.getElementById('sliderDesc');
+            const humanSilhouette = document.getElementById('humanSilhouette');
+
+            genSlider.addEventListener('input', (e) => {
+                const val = parseInt(e.target.value);
+                const percent = (100 / Math.pow(2, val - 1)).toFixed(2);
+                sliderPercent.textContent = percent + '%';
+                sliderDesc.textContent = currentLang === 'kk' ? 
+                    `${val}-буын: ${generations[val-1].kk}` : 
+                    `${val}th gen: ${generations[val-1].en}`;
+                humanSilhouette.style.background = generations[val-1].result;
+                humanSilhouette.style.opacity = percent / 100;
+                
+                updateDNA(val);
+                updateTree(val);
+            });
+
+            // Timeline
+            const timelineContainer = document.getElementById('timelineContainer');
+            function createTimeline() {
+                let html = '';
+                generations.forEach((gen, index) => {
+                    const percent = (100 / Math.pow(2, index)).toFixed(2) + '%';
+                    html += `
+                        <div class="timeline-item">
+                            <div class="gen-badge">${index + 1}</div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 1.3rem; font-weight: 600; color: var(--primary);">
+                                    <span class="lang-kk">${gen.kk}</span>
+                                    <span class="lang-en">${gen.en}</span>
+                                </div>
+                                <div style="color: var(--secondary);">
+                                    <span class="lang-kk">${gen.name.kk}</span>
+                                    <span class="lang-en">${gen.name.en}</span>
+                                </div>
+                            </div>
+                            <div style="font-size: 1.8rem; font-weight: 700; color: var(--gold);">${percent}</div>
+                        </div>
+                    `;
+                });
+                timelineContainer.innerHTML = html;
+            }
+
+            // Genealogy
+            let genealogyData = [];
+            const userNameInput = document.getElementById('userName');
+            const userRuSelect = document.getElementById('userRu');
+            const startTreeBtn = document.getElementById('startTreeBtn');
+            const genealogyTree = document.getElementById('genealogyTree');
+            const showAddFormBtn = document.getElementById('showAddFormBtn');
+            const addChildForm = document.getElementById('addChildForm');
+            const cancelAddBtn = document.getElementById('cancelAddBtn');
+            const addChildBtn = document.getElementById('addChildBtn');
+            const childName = document.getElementById('childName');
+
+            startTreeBtn.addEventListener('click', function() {
+                const name = userNameInput.value.trim() || (currentLang === 'kk' ? 'Адам' : 'Adam');
+                const ru = userRuSelect.value || 'Ұлы жүз > Дулат';
+                
+                genealogyData = [{
+                    id: 0,
+                    name: name,
+                    ru: ru
+                }];
+                
+                renderGenealogyTree();
+                showAddFormBtn.style.display = 'inline-block';
+            });
+
+            function renderGenealogyTree() {
+                if (genealogyData.length === 0) {
+                    genealogyTree.innerHTML = '<p style="text-align: center; color: white;">Шежірені бастаңыз</p>';
+                    return;
+                }
+                
+                let html = '<div class="generation-row">';
+                
+                genealogyData.forEach((person, index) => {
+                    const percent = (100 / Math.pow(2, index)).toFixed(2) + '%';
+                    const ruParts = person.ru.split(' > ');
+                    const ruDisplay = ruParts[ruParts.length - 1];
+                    
+                    html += `
+                        <div class="person-card ${index === 0 ? 'root' : ''}">
+                            <div class="generation-label">${index + 1}-буын</div>
+                            <div class="person-name">${person.name}</div>
+                            <div class="person-ru">${ruDisplay}</div>
+                            <div class="person-percent">${percent}</div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                genealogyTree.innerHTML = html;
+            }
+
+            showAddFormBtn.addEventListener('click', function() {
+                if (genealogyData.length >= 9) {
+                    alert(currentLang === 'kk' ? '8 ұрпақ толды! Шежіре аяқталды.' : '8 generations completed!');
+                    return;
+                }
+                addChildForm.style.display = 'block';
+                showAddFormBtn.style.display = 'none';
+            });
+
+            cancelAddBtn.addEventListener('click', function() {
+                addChildForm.style.display = 'none';
+                showAddFormBtn.style.display = 'inline-block';
+                childName.value = '';
+            });
+
+            addChildBtn.addEventListener('click', function() {
+                const name = childName.value.trim();
+                if (!name) {
+                    alert(currentLang === 'kk' ? 'Атын жазыңыз!' : 'Enter name!');
+                    return;
+                }
+                
+                if (genealogyData.length >= 9) {
+                    alert(currentLang === 'kk' ? '8 ұрпақтан артық қосуға болмайды!' : 'Maximum 8 generations!');
+                    return;
+                }
+                
+                const ruType = document.querySelector('input[name="ruType"]:checked').value;
+                let ru = genealogyData[genealogyData.length - 1].ru;
+                
+                if (ruType === 'mother') {
+                    const ruOptions = ['Ұлы жүз > Дулат', 'Орта жүз > Найман', 'Кіші жүз > Әлімұлы'];
+                    ru = ruOptions[Math.floor(Math.random() * ruOptions.length)];
+                }
+                
+                genealogyData.push({
+                    id: genealogyData.length,
+                    name: name,
+                    ru: ru
+                });
+                
+                renderGenealogyTree();
+                addChildForm.style.display = 'none';
+                showAddFormBtn.style.display = 'inline-block';
+                childName.value = '';
+                
+                if (genealogyData.length === 9) {
+                    alert(currentLang === 'kk' ? 
+                        '8 ұрпақ толды! 8-ші ұрпақта туыстық бітеді.' : 
+                        '8 generations completed! Genetic relation ends at 8th generation.');
+                }
+            });
+
+            // Event listeners
+            document.getElementById('startMixBtn').addEventListener('click', startMixing);
+            document.getElementById('resetMixBtn').addEventListener('click', resetMixing);
+            document.getElementById('heroBtn').addEventListener('click', () => {
+                document.getElementById('color-lab').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Initialize
+            createBeakers();
+            createTimeline();
+            resetMixing();
+            genSlider.value = 1;
+            genSlider.dispatchEvent(new Event('input'));
+            showAddFormBtn.style.display = 'none';
+        })();
+    </script>
+</body>
+</html>
